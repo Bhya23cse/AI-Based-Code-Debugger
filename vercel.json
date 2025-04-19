@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/execute/(.*)",
+      "dest": "server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
+    }
+  ],
+  "env": {
+    "PORT": "3000",
+    "NODE_ENV": "production",
+    "MAX_EXECUTION_TIME": "30000",
+    "TEMP_FILE_LIFETIME": "43200000"
+  }
+} 
